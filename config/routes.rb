@@ -7,4 +7,14 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
+
+  namespace :api do
+    namespace :v1 do
+      resources :bill_of_ladings, only: [] do
+        member do
+          post "generate_invoice", to: "invoices#generate"
+        end
+      end
+    end
+  end
 end
