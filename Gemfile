@@ -38,6 +38,14 @@ group :development, :test do
 
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   gem "rubocop-rails-omakase", require: false
+  gem "rspec-rails"
+  gem "factory_bot_rails"
+  gem "faker"
+  gem "pry"
 end
 
+group :test do
+  gem "shoulda-matchers", "~> 5.0"
+end
 
+gem "active_interaction", "~> 5.5"
