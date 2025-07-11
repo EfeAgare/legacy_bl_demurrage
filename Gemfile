@@ -45,7 +45,7 @@ group :development, :test do
 end
 
 group :test do
-  gem "shoulda-matchers", "~> 5.0"
+  gem "shoulda-matchers", "~> 6.5"
 end
 
 gem "active_interaction", "~> 5.5"
