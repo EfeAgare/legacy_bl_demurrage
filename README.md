@@ -90,6 +90,7 @@ The database is seeded with:
 4. Invoice generation is triggered manually currently
 5. Freetime is calculated in whole days
 6. View — List of overdue invoices (no pdf, no downloads, just a table)
+7. Add +1 to include today in demurrage billing, as charges apply starting from the day after freetime ends
 
 ## Future Improvements
 1. Add background job processing

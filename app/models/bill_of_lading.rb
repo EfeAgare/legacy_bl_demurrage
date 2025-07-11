@@ -23,6 +23,7 @@ class BillOfLading < ApplicationRecord
   def overdue_days
     due_date = arrival_date + freetime.days
     days = (Date.current - due_date.to_date).to_i
+    # Add +1 to include today in demurrage billing, as charges apply starting from the day after freetime ends
     days >= 0 ? days + 1 : 0
   end
 end
