@@ -101,3 +101,4 @@ The database is seeded with:
 3. Add PDF invoice generation
 4. Include authentication
 5. Add more detailed reporting
+6. Upgrade rails to use the database-backed adapters for Rails.cache, Active Job, and Action Cable like solid_cache solid_queue, solid_cable, mission_control-jobs
