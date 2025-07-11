@@ -39,8 +39,19 @@ bundle exec rspec
 ## API Endpoints
 
 ### Generate Invoices
+
+To generate an invoice for a specific Bill of Lading:
+
+First, get the list of available IDs by running the command in the rails console (rails c):
+```
+BillOfLading.all.pluck(:id)
+# => [321, 322, 323, ...]
+```
+
+Then use the ID in this curl command:
+
 ```bash
-curl -X POST http://localhost:3000//api/v1/bill_of_ladings/id/generate_invoice
+curl -X POST http://localhost:3000/api/v1/bill_of_ladings/321/generate_invoice
 ```
 
 ## Sample Data
@@ -66,9 +77,9 @@ The database is seeded with:
 ### Technical Choices
 1. Service object pattern for invoice generation
 2. Use of active_interaction gem to keep
-	•	Keeps controller logic clean
-	•	Business rules live in one place
-	•	Easily testable in isolation
+	-   Keeps controller logic clean
+	- 	Business rules live in one place
+	- 	Easily testable in isolation
 3. Scopes for querying overdue BLs efficiently
 4. JSON-only API — no views, no PDFs, no downloads
 
