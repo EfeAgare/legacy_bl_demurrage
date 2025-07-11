@@ -23,6 +23,6 @@ class BillOfLading < ApplicationRecord
   def overdue_days
     due_date = arrival_date + freetime.days
     days = (Date.current - due_date.to_date).to_i
-    days.positive? ? days : 0
+    days >= 0 ? days + 1 : 0
   end
 end
