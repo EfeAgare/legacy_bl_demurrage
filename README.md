@@ -93,7 +93,7 @@ The database is seeded with:
 6. View — List of overdue invoices (no pdf, no downloads, just a table)
 7. Add +1 to include today in demurrage billing, as charges apply starting from the day after freetime ends
 8. Call Demurrage::InvoiceGenerator.run! from rails console manually for now.
-9. DemurrageInvoiceJob will be responsible for triggering the demurrage invoice generation process. Intended to be scheduled to run daily (e.g., via Sidekiq-scheduler, cron, or Heroku Scheduler).
+9. DemurrageInvoiceJob will be responsible for triggering the demurrage invoice generation process. Intended to be scheduled to run daily (e.g., via Sidekiq-scheduler).
 
 ## Future Improvements
 1. Add background job processing
@@ -101,3 +101,4 @@ The database is seeded with:
 3. Add PDF invoice generation
 4. Include authentication
 5. Add more detailed reporting
+6. Upgrade rails to use the database-backed adapters for Rails.cache, Active Job, and Action Cable like solid_cache solid_queue, solid_cable, mission_control-jobs

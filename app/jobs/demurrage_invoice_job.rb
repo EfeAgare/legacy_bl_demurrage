@@ -1,6 +1,5 @@
 # This job is responsible for triggering the demurrage invoice generation process.
-# Intended to be scheduled to run daily (e.g., via Sidekiq-scheduler, cron, or Heroku Scheduler).
-#
+# Intended to be scheduled to run daily (e.g., via Sidekiq-scheduler)
 # It calls Demurrage::InvoiceGenerator.run!, which:
 # - Finds BLs that became overdue today
 # - Skips those with existing open invoices
