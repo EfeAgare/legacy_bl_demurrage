@@ -82,6 +82,7 @@ The database is seeded with:
 	- 	Easily testable in isolation
 3. Scopes for querying overdue BLs efficiently
 4. JSON-only API — no views, no PDFs, no downloads
+5. Batch invoice generation is handled via Demurrage::InvoiceGenerator, allowing future integration with background jobs or scheduled tasks.
 
 ### Assumptions
 1. All containers are charged at the same rate
@@ -91,6 +92,8 @@ The database is seeded with:
 5. Freetime is calculated in whole days
 6. View — List of overdue invoices (no pdf, no downloads, just a table)
 7. Add +1 to include today in demurrage billing, as charges apply starting from the day after freetime ends
+8. Call Demurrage::InvoiceGenerator.run! from rails console manually for now.
+9. DemurrageInvoiceJob will be responsible for triggering the demurrage invoice generation process. Intended to be scheduled to run daily (e.g., via Sidekiq-scheduler, cron, or Heroku Scheduler).
 
 ## Future Improvements
 1. Add background job processing
