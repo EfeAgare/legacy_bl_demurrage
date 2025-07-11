@@ -16,6 +16,12 @@ class Invoice < ApplicationRecord
 
   before_validation :generate_reference, on: :create
 
+  scope :overdue, -> {
+    joins(:bill_of_lading)
+      .where("DATE(bill_of_ladings.arrival_date + INTERVAL bill_of_ladings.freetime DAY) < ?", Date.current)
+      .where.not(status: %w[paid cancelled])
+  }
+
   private
 
   def generate_reference
